@@ -224,6 +224,15 @@
               <option value="119900">Управление — 119 900 ₽/мес · без лимита менеджеров · 24 000 минут</option>
             </select>
           </div>
+          <label class="check"><input type="checkbox" id="os"><span>LEADMEET OS — ИИ-агент и пульт на вашей базе<span class="d">Отвечает на заявку за минуты, квалифицирует, записывает на встречу. Цифры открыты вам с первого дня. Старт на ваших данных: CRM, старые заявки, записи звонков</span></span><span class="p">от 59 900 ₽</span></label>
+          <div id="osWrap" style="display:none">
+            <div class="q">Формат входа:</div>
+            <select id="osMode">
+              <option value="pilot" selected>Пилот 30 дней — 59 900 ₽ · один канал, цель по встречам в договоре</option>
+              <option value="impl">Внедрение сразу — 299 000 ₽ · сценарии, CRM, телефония, обучение команды</option>
+            </select>
+            <div class="note" id="osNote" style="margin-top:8px"></div>
+          </div>
         </div>
       </div>
 
@@ -357,7 +366,7 @@
 
   <section id="partner">
     <h2>Приведи клиента — получи 10% с чека</h2>
-    <p class="lead">Знаете предпринимателя или франчайзи, которому нужен отдел продаж или найм? Оставьте контакт прямо здесь — я свяжусь и проведу сделку сам. Плачу 10% с фактической оплаты клиента, в течение 5 рабочих дней после того, как деньги поступят.</p>
+    <p class="lead">Знаете предпринимателя или франчайзи, которому нужен отдел продаж или найм? Оставьте контакт прямо здесь — я свяжусь и проведу сделку сам. Плачу 10% с фактической оплаты клиента в течение 5 рабочих дней после того, как деньги поступят. Клиент закрепляется за вами на 90 дней, вознаграждение идёт 12 месяцев с первой оплаты. После трёх оплативших клиентов за 12 месяцев ставка 15%.</p>
     <div class="card">
       <details open>
         <summary>Оставить контакт</summary>
@@ -460,7 +469,9 @@ var LM = (function(){
     traffic: 37000,
     website: 49900,
     ectemSetup: 99900,
-    hrSystem: 349900
+    hrSystem: 349900,
+    osPilot: 59900,
+    osImpl: 299000
   };
 
   var PLANS = {
@@ -509,6 +520,10 @@ var LM = (function(){
       out.push(['Настройка AI-РОП', P.ectemSetup]);
       out.push(['AI-РОП, первый месяц', c.ectemSub]);
     }
+    if(c.os){
+      if(c.osMode === 'impl') out.push(['LEADMEET OS: внедрение', P.osImpl]);
+      else out.push(['LEADMEET OS: пилот 30 дней (идёт в зачёт внедрения)', P.osPilot]);
+    }
     return {items: out, note: note, base: out.reduce(function(a,b){return a+b[1];},0)};
   }
 
@@ -552,7 +567,9 @@ function cfg(){
     website: $('website').checked,
     ectem: $('ectem').checked,
     ectemSub: +$('ectemSub').value,
-    hr: $('hr').checked
+    hr: $('hr').checked,
+    os: $('os').checked,
+    osMode: $('osMode').value
   };
 }
 
@@ -561,6 +578,10 @@ function calc(){
   $('ropMonthsWrap').style.display = c.ropRent ? 'block' : 'none';
   $('ectemWrap').style.display = c.ectem ? 'block' : 'none';
   $('hrWrap').style.display = sys ? 'block' : 'none';
+  $('osWrap').style.display = c.os ? 'block' : 'none';
+  $('osNote').textContent = c.osMode === 'impl'
+    ? 'После внедрения подписка: Старт 29 900 · Рост 59 900 · Масштаб 99 900 ₽ в месяц (500 / 1 500 / 4 000 диалогов), минимум 3 месяца. Минуты и токены включены.'
+    : 'Цель достигнута: 59 900 ₽ идут в зачёт внедрения (299 000 ₽, доплата 239 100 ₽). Не достигнута: дальше ничего не платите.';
 
   const r = LM.items(c);
   $('sysNote').textContent = sys
@@ -635,7 +656,7 @@ function pfLink(){
     + 'Компания клиента: ' + (company || '—') + '\n'
     + 'Контакт клиента: ' + (leadContact || '—') + '\n'
     + 'Комментарий: ' + (comment || '—')
-    + '\n\nУсловие: 10% с чека после оплаты клиента.';
+    + '\n\nУсловие: 10% с чека после оплаты клиента, закрепление 90 дней, выплата 12 месяцев.';
   pfBtn.href = 'https://t.me/vladlev007?text=' + encodeURIComponent(msg);
 }
 ['pfName','pfContact','pfCompany','pfLeadContact','pfComment'].forEach(id => $(id).addEventListener('input', pfLink));
