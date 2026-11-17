@@ -173,7 +173,7 @@ a{text-underline-offset:3px}
 
 @media (max-width:640px){
   .brand nav{display:none}
-  .lm-sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(11,31,58,.08)}
+  .lm-sticky.show{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(11,31,58,.08)}
   .lm-sticky .btn{display:block;width:100%}
   body{padding-bottom:84px}
 }
@@ -761,5 +761,6 @@ roiCalc();
 calc();
 </script>
 <div class="lm-sticky"><a class="btn" href="https://t.me/vladlev007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20LEADMEET.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6." target="_blank" rel="noopener">Написать в Telegram</a></div>
+<script>(function(){var s=document.querySelector('.lm-sticky'),h=document.querySelector('.hero .btn');if(!s)return;if(!h||!('IntersectionObserver' in window)){s.classList.add('show');return}new IntersectionObserver(function(e){s.classList.toggle('show',!e[0].isIntersecting)}).observe(h)})()</script>
 </body>
 </html>
