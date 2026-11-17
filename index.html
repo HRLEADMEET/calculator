@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B1F3A">
 <title>LEADMEET — отдел продаж под ключ. Расчёт стоимости</title>
 <meta name="description" content="Соберите конфигурацию отдела продаж: найм менеджеров, система продаж, руководитель, контроль качества. Стоимость и график оплаты — сразу на экране.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,6 +116,70 @@
   details summary{cursor:pointer;font-size:13.5px;font-weight:600}
   details .req{margin-top:10px}
   :focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+/* LM-UNIFIED:START */
+/* LM-UNIFIED v1.0 · единый слой бренда LEADMEET, 17.11.2026.
+   Источник правды: Сайт_GitHub/lm-unified.css. В страницы вставляется скриптом build_site.py между маркерами,
+   руками в страницах не править. Токены: navy #0B1F3A, ink #1E1E1E, blue-ink #1A6FDB, green-ink #15803D,
+   Manrope, радиусы 10 и 16. Тот же набор, что в LEADMEET OS. */
+:root{--ink:#0B1F3A;--navy:#0B1F3A;--mute:#5B6575;--line:#E3E7EE;--bg:#F4F6F9;--card:#fff;--brand:#1A6FDB;--brand-dark:#165FBF;--brand-hi:#2D8CFF;--ok:#15803D;--gold:#15803D;--r:10px;--r-lg:16px;--shadow:0 1px 2px rgba(11,31,58,.06),0 8px 24px rgba(11,31,58,.08)}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{color:#1E1E1E;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--navy);text-wrap:balance}
+a{text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+.num,td.n,.big,.big-total,.val,.price,.kpi b,.proof b,.hero-card .num b{font-variant-numeric:tabular-nums}
+
+/* шапка и первый экран: тёмные на всю ширину, тело страницы светлое */
+.brand,.hero{background:var(--navy);box-shadow:0 0 0 100vmax var(--navy);clip-path:inset(0 -100vmax)}
+.brand{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.brand .name{color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center}
+.brand .name::before{content:"LM";grid-row:1 / span 2;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--brand-hi);color:#04101F;font-size:13px;font-weight:800;letter-spacing:0}
+.brand .name span{color:#9FB2D4}
+.brand nav{display:flex;gap:6px 18px;flex-wrap:wrap;align-items:center;font-size:14px}
+.brand nav a{color:#DFE8FB;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);font-weight:600}
+.brand nav a:hover{color:#fff;border-color:#fff}
+.brand a.tel{color:#fff;border-bottom:1px solid rgba(255,255,255,.35)}
+.hero::before{display:none}
+.hero h1{color:#fff}
+.hero p,.hero .avatar .t{color:#C5D3EE}
+.hero .avatar .t b{color:#fff}
+.hero [style*="color:var(--mute)"]{color:#C5D3EE!important}
+.hero [style*="color:var(--ink)"]{color:#fff!important}
+.hero .metric,.hero .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);color:#fff}
+.hero .metric .txt{color:#DFE8FB}
+
+/* кнопки: одна главная, контраст не ниже 4,5 */
+.btn{background:var(--brand);color:#fff;border-radius:var(--r);box-shadow:none}
+.btn:hover{background:var(--brand-dark);color:#fff}
+.btn.alt{background:var(--navy)}
+.btn.alt:hover{background:var(--brand)}
+.hero .btn{box-shadow:0 8px 24px rgba(11,31,58,.35)}
+
+/* поверхности: радиусы 10 и 16, без цветных полос слева, без размытых пятен */
+.step,.card,.case,.adv div,.promise div,.kpi div,.formsec,.proof,.mgr-box,details{border-radius:var(--r-lg)}
+.chip,label.check,.pay,select,input,textarea,.qr img{border-radius:var(--r)}
+.pay{overflow:hidden}
+.adv div,.promise div{border-left:1px solid var(--line)}
+.formsec::before{display:none}
+.proof{background:var(--navy)}
+.fbar .bar{border-radius:6px}
+
+/* общие блоки: переход к быстрому входу и ссылки между страницами */
+.lm-start{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px}
+.lm-start h2{font-size:20px}
+.lm-start .lead{margin:6px 0 0;max-width:56ch}
+.lm-links{display:block;margin-top:10px}
+.lm-sticky{display:none}
+
+@media (max-width:640px){
+  .brand nav{display:none}
+  .lm-sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(11,31,58,.08)}
+  .lm-sticky .btn{display:block;width:100%}
+  body{padding-bottom:84px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* LM-UNIFIED:END */
 </style>
 </head>
 <body>
@@ -128,7 +193,7 @@
       <a href="#proof">Цифры</a>
       <a href="#roi">Окупаемость</a>
       <a href="#partner">Партнёрам</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#contacts">Контакты</a> <a href="https://hrleadmeet.github.io/audit/">Бесплатный аудит</a> <a href="https://claude.ai/artifact/VAWziWW5TJHvwd81ZyVzBS" target="_blank" rel="noopener">LEADMEET OS</a>
     </nav>
   </div>
 
@@ -415,7 +480,8 @@
   </section>
 
 
-  <section id="contacts">
+  <section id="start"><div class="lm-start"><div><h2>Не готовы к отделу целиком? Начните со спринта</h2><p class="lead">5 встреч с целевыми клиентами за 14 дней или возврат денег: 59 900 ₽, в зачёт внедрения. Сколько встреч вы недополучаете, покажет квиз на минуту в LEADMEET OS.</p></div><a class="btn" href="https://claude.ai/artifact/VAWziWW5TJHvwd81ZyVzBS" target="_blank" rel="noopener">Пройти квиз за минуту</a></div></section>
+<section id="contacts">
     <h2>Контакты</h2>
     <p class="lead">Если остались вопросы пишите в Telegram — отвечаю сам, без ассистентов и автоворонок.</p>
     <div class="contacts">
@@ -451,7 +517,8 @@
     <b>LEADMEET</b> · построение отделов продаж и найм менеджеров · <a href="https://t.me/hrleadmeet" target="_blank" rel="noopener">@hrleadmeet</a><br>
     Условия оказания услуг — <a href="https://t.me/hrleadmeet/62" target="_blank" rel="noopener">публичная оферта</a>. Расчёт на этой странице носит информационный характер и не является публичной офертой: итоговые условия фиксируются после диагностики.<br>
     Отправляя заявку через формы на этой странице, вы соглашаетесь с <a href="https://docs.google.com/document/d/1dRTygafthUDPchkHS4sFdo4fiOKdj_fchWsqsJGzYPU/edit?usp=sharing" target="_blank" rel="noopener">обработкой персональных данных</a>.
-  </footer>
+  <span class="lm-links">Ещё: <a href="https://hrleadmeet.github.io/audit/">бесплатный аудит</a> · <a href="https://claude.ai/artifact/VAWziWW5TJHvwd81ZyVzBS" target="_blank" rel="noopener">LEADMEET OS</a></span>
+</footer>
 </div>
 
 <script>
@@ -693,5 +760,6 @@ roiCalc();
 
 calc();
 </script>
+<div class="lm-sticky"><a class="btn" href="https://t.me/vladlev007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20LEADMEET.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6." target="_blank" rel="noopener">Написать в Telegram</a></div>
 </body>
 </html>
