@@ -234,7 +234,8 @@ a{text-underline-offset:3px}
     </div>
   </section>
 
-  <section id="calc">
+  <div class="lm-cityband"><style>.lm-cityband{background:var(--navy);box-shadow:0 0 0 100vmax var(--navy);clip-path:inset(0 -100vmax);padding:0 0 26px}.lm-citycap{color:#C5D3EE;font-size:15px;max-width:60ch;margin:0 0 4px}.lm-citybox{position:relative;height:clamp(270px,40vw,350px)}.lm-citybox canvas{position:absolute;inset:0;width:100%;height:100%;display:block}</style><p class="lm-citycap">Ваш бизнес изнутри: ИИ-агенты ищут и пишут, человек проводит встречу.</p><div class="lm-citybox"><canvas id="lmCity" aria-label="Схема: в центре ваш бизнес, вокруг поиск, исследование, сообщение, встреча и оплата"></canvas></div></div>
+<section id="calc">
     <h2>Соберите свою конфигурацию</h2>
     <p class="lead">Выберите, что нужно вашей компании. Расчёт обновляется сразу — его можно отправить мне одной кнопкой и обсудить.</p>
     <div class="conf">
@@ -496,7 +497,7 @@ a{text-underline-offset:3px}
           <li><span>Условия работы</span><a href="https://t.me/hrleadmeet/62" target="_blank" rel="noopener">Публичная оферта</a></li>
         </ul>
         <div style="display:grid;gap:8px;margin-top:14px">
-          <a class="btn" href="https://t.me/vladlev007?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2%20%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B0%D1%83%D0%B4%D0%B8%D1%82%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6" target="_blank" rel="noopener">Записаться на аудит отдела продаж</a>
+          <a class="btn" href="https://t.me/vladlev007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B0%D1%83%D0%B4%D0%B8%D1%82%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6.%20%C2%AB%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B8%D1%82%20%D0%B7%D0%B0%20%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%2C%20%D0%B0%20%D0%BD%D0%B5%20%D0%B7%D0%B0%20%D1%83%D1%81%D0%B8%D0%BB%D0%B8%D1%8F.%C2%BB%20" target="_blank" rel="noopener">Записаться на аудит отдела продаж</a>
         </div>
         <div class="note">Аудит — разбор вашей воронки найма и продаж по цифрам: где теряются лиды, сколько стоит менеджер, что чинить первым. Без презентаций на час.</div>
       </div>
@@ -689,7 +690,7 @@ function calc(){
   const lines = r.items.map(i => '• ' + i[0] + ' — ' + F(i[1])).join('\n');
   const msg = 'РАСЧЁТ с сайта LEADMEET\n\n' + lines + '\n\nСпособ оплаты: ' + plan.label
     + '\nИтого: ' + F(total)
-    + '\n\nЗдравствуйте! Посчитал конфигурацию на вашем калькуляторе. Готов к работе — расскажите, что дальше.';
+    + '\n\nЗдравствуйте! Посчитал конфигурацию на вашем калькуляторе. Готов к работе — расскажите, что дальше. «Результат даёт система, а не люди.»';
   $('tgBtn').href = 'https://t.me/VLADLEV007?text=' + encodeURIComponent(msg);
   $('invoiceBtn').href = 'https://t.me/vladlev007?text=' + encodeURIComponent(msg + '\n\nНужен счёт на юрлицо — прикреплю реквизиты своей компании файлом в этом чате.');
   $('copyBtn').dataset.text = msg + '\n\nОферта: https://t.me/hrleadmeet/62\nОплата: ИП Криворотченко А.В., ИНН 312346399186, р/с 40802810707000033287, Сбербанк, БИК 041403633';
@@ -760,7 +761,9 @@ roiCalc();
 
 calc();
 </script>
-<div class="lm-sticky"><a class="btn" href="https://t.me/vladlev007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20LEADMEET.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6." target="_blank" rel="noopener">Написать в Telegram</a></div>
+<div class="lm-sticky"><a class="btn" href="https://t.me/vladlev007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20LEADMEET.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6.%20%C2%AB%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80%20%D1%8D%D1%82%D0%BE%20%D0%B5%D0%B4%D0%B8%D0%BD%D0%B8%D1%86%D0%B0%20%D1%8D%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B8%2C%20%D0%B0%20%D0%BD%D0%B5%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D0%B7%D0%B0%D1%80%D0%BF%D0%BB%D0%B0%D1%82%D0%B0.%C2%BB%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Написать в Telegram</a></div>
 <script>(function(){var s=document.querySelector('.lm-sticky'),h=document.querySelector('.hero .btn');if(!s)return;if(!h||!('IntersectionObserver' in window)){s.classList.add('show');return}new IntersectionObserver(function(e){s.classList.toggle('show',!e[0].isIntersecting)}).observe(h)})()</script>
+<script src="https://hrleadmeet.github.io/lm-city.js"></script>
+<script>(function(){var c=document.getElementById("lmCity");if(c&&window.LMCity)LMCity.mount(c,{anchor:"center",alpha:1,legend:true})})()</script>
 </body>
 </html>
